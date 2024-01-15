@@ -1,0 +1,45 @@
+$NOMOD51
+$INCLUDE (8051.MCU)
+
+; INPUTS
+BRAKE BIT P1.0
+EMERG BIT P1.1
+PARK BIT P1.2
+L_TURN BIT P1.3
+R_TURN BIT P1.4
+
+; OUTPUTS
+L_FRNT BIT P2.0
+R_FRNT BIT P2.1
+L_DASH BIT P2.2
+R_DASH BIT P2.3    
+L_REAR BIT P2.4
+R_REAR BIT P2.5
+
+; LCD
+RS BIT P2.6
+E BIT P2.7
+DD DATA P3
+F DATA 21h
+
+;====================================
+    ORG 0000H
+    JMP INIT
+;====================================
+
+INIT:
+    MOV TMOD, #00000001B
+    MOV TL0, #0
+    MOV TH0, #-16
+    MOV SUB_DIV, #244
+    SETB ET0
+    SETB EA
+    SETB TR0
+    JMP MAIN
+
+MAIN:
+    
+
+
+
+END
